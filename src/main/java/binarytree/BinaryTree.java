@@ -1,7 +1,9 @@
 package binarytree;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class BinaryTree<E extends Comparable<E>> implements INode<E> {
     private Node<E> root;
@@ -34,7 +36,7 @@ public class BinaryTree<E extends Comparable<E>> implements INode<E> {
     @Override
     public void add(final E value) {
         if (this.root == null) {
-            this.root = new Node<E>(value);
+            this.root = new Node<>(value);
         } else {
             this.root.add(value);
         }
@@ -117,11 +119,27 @@ public class BinaryTree<E extends Comparable<E>> implements INode<E> {
     }
 
     @Override
-    public void remove(E value, INode<E> father) {
+    public void remove(final E value, final INode<E> father) {
 
     }
 
     public List<E> toByWidthList() {
-        return null;
+        if (this.isEmpty()) {
+            return null;
+        }
+        final Queue<Node<E>> queue = new LinkedList<>();
+        final List<E> list = new ArrayList<>();
+        queue.add(this.root);
+        while (!queue.isEmpty()) {
+            final Node<E> current = queue.poll();
+            if (current.getLeft() != null) {
+                queue.add(current.getLeft());
+            }
+            if (current.getRight() != null) {
+                queue.add(current.getRight());
+            }
+            list.add(current.getValue());
+        }
+        return list;
     }
 }
