@@ -1,20 +1,22 @@
 package com.nfs;
 
-import list.List;
+import binarytree.BinaryTree;
+
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        List<Character> myList = new List<>();
-        myList.add('H');
-        myList.add('E');
-        myList.add('L');
-        myList.add('L');
-        myList.add('O');
-        System.out.println(myList.length());
-        System.out.println(myList.contains('H'));
-        System.out.println(myList.contains('A'));
-        System.out.println(myList.getString());
-        myList.remove('E');
-        System.out.println(myList.getString());
+        BinaryTree<Integer> myBinaryTree = new BinaryTree<>();
+        myBinaryTree.add(10);
+        myBinaryTree.add(5);
+        myBinaryTree.add(3);
+        myBinaryTree.add(12);
+        myBinaryTree.add(15);
+        myBinaryTree.add(13);
+        List<Integer> infixList = myBinaryTree.toInfixList();
+        myBinaryTree.remove(3);
+        infixList = myBinaryTree.toInfixList();
+        myBinaryTree.remove(10);
+        infixList = myBinaryTree.toInfixList();
     }
 }
