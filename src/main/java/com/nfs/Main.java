@@ -2,9 +2,9 @@ package com.nfs;
 
 import binarytree.BinaryTree;
 
-public class Main {
-    public static void main(String[] args) {
-        BinaryTree<Integer> myBinaryTree = new BinaryTree<>();
+public final class Main {
+    public static void main(final String[] args) {
+        final BinaryTree<Integer> myBinaryTree = new BinaryTree<>();
         myBinaryTree.add(10);
         myBinaryTree.add(5);
         myBinaryTree.add(3);
